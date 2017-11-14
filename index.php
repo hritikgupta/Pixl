@@ -13,15 +13,8 @@
         <link href="https://fonts.googleapis.com/css?family=Pacifico|Playfair+Display|Quicksand" rel="stylesheet">
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="assets/css/form-elements.css">
+        <link rel="stylesheet" href="assets/css/form-elements.css">
         <link rel="stylesheet" href="assets/css/style.css">
-
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
 
         <!-- Favicon and touch icons -->
         <link rel="shortcut icon" href="assets/ico/favicon.png">
@@ -47,7 +40,7 @@
         </style>
         <!-- Top content -->
         <div class="top-content">
-        	<nav class="navbar navbar-inverse" role="navigation" style="background:rgba(0, 0, 0,0.7); padding-right: -4vw">
+            <nav class="navbar navbar-inverse" role="navigation" style="background:rgba(0, 0, 0,0.7); padding-right: -4vw">
                 <div class="container">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
@@ -66,51 +59,41 @@
                 </div>
             </nav>
             <div class="inner-bg">
-                <div class="container">
+                <div class="container" style="margin-top: -4vw">
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text font2">
                             <h1 class="shadower"><strong>Login to see photos from your friends.</strong></h1>
                             <div class="description">
-                            	<p class="shadower font2">
-	                            	Dive into the fascinating world of photograhy. <br/>Share and upload your own photos and rate photos of your friends.
-                            	</p>
+                                <p class="shadower font2">
+                                    Dive into the fascinating world of photograhy. <br/>Share and upload your own photos and rate photos of your friends.
+                                </p>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
-                        	<div class="form-top">
-                        		<div class="form-top-left font2">
-                        			<h3>Connect to the world here</h3>
-                            		<p>Enter your username and password to log on:</p>
-                        		</div>
-                        		<div class="form-top-right">
-                        			<i class="fa fa-key"></i>
-                        		</div>
+                            <div class="form-top">
+                                <div class="form-top-left font2">
+                                    <h3>Connect to the world here</h3>
+                                    <p>Enter your username and password to log on:</p>
+                                </div>
+                                <div class="form-top-right">
+                                    <i class="fa fa-key"></i>
+                                </div>
                             </div>
                             <div class="form-bottom font2">
-			                    <form role="form" action="" method="post" class="login-form">
-			                    	<div class="form-group">
-			                    		<label class="sr-only" for="form-username">Username</label>
-			                        	<input type="text" name="form-username" placeholder="Username..." class="form-username form-control" id="form-username">
-			                        </div>
-			                        <div class="form-group">
-			                        	<label class="sr-only" for="form-password">Password</label>
-			                        	<input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password">
-			                        </div>
-			                        <button type="submit" class="btn">Sign in</button>
-			                    </form>
-		                    </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6 col-sm-offset-3 social-login font2">
-                        	<h3 class="shadower">...or login with:</h3>
-                        	<div class="social-login-buttons">
-	                        	<a class="btn btn-link-1 btn-link-1-facebook" href="#">
-	                        		<i class="fa fa-facebook"></i> Facebook
-	                        	</a>
-                        	</div>
+                                <form id="myform1" role="form" action="" method="post" class="login-form">
+                                    <div class="form-group">
+                                        <label class="sr-only" for="form-username">Registered Email</label>
+                                        <input type="text" name="email" placeholder="Registered Email..." class="form-username form-control"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="sr-only" for="form-password">Password</label>
+                                        <input type="password" name="password" placeholder="Password..." class="form-password form-control">
+                                    </div>
+                                    <button type="submit" name="submit" class="btn">Sign in</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -130,42 +113,88 @@
                     </div>
                     
                     <div class="modal-body">
-                        
-                        <form role="form" action="" method="post" class="registration-form">
+                        <form id="myform2" role="form" action="" method="post" class="registration-form">
                             <div class="form-group">
                                 <label class="sr-only" for="form-first-name">First name</label>
-                                <input type="text" required name="form-first-name" placeholder="First name..." class="form-first-name form-control" id="form-first-name">
+                                <input type="text" required name="firstname" placeholder="First name..." class="form-first-name form-control">
                             </div>
                             <div class="form-group">
                                 <label class="sr-only" required for="form-last-name">Last name</label>
-                                <input type="text" name="form-last-name" placeholder="Last name..." class="form-last-name form-control" id="form-last-name">
+                                <input type="text" name="lastname" placeholder="Last name..." class="form-last-name form-control">
                             </div>
                             <div class="form-group">
                                 <label class="sr-only" required for="form-email">Email</label>
-                                <input type="text" name="form-email" placeholder="Email..." class="form-email form-control" id="form-email">
+                                <input type="text" name="email" placeholder="Email..." class="form-email form-control" id="email">
                             </div>
                             <div class="form-group">
                                 <label class="sr-only" required for="form-password">Password</label>
-                                <input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-email">
+                                <input type="password" name="password" placeholder="Password..." class="form-password form-control">
                             </div>
-                            <button type="submit" class="btn">Sign me up!</button>
-                        </form>
-                        
+                            <button type="submit" name="submit2" class="btn">Sign me up!</button>
+                        </form>                        
                     </div>
                     
                 </div>
             </div>
         </div>
 
+        <?php
+        error_reporting(E_ALL);
+        ini_set('display_errors', 1);
 
+        if (isset($_POST['submit'])){     
+            $db = mysqli_connect('localhost', 'root', 'abcd', 'project');
+            if (!$db){
+                die("Connection failed: " . mysqli_connect_error());
+            }
+            session_start();
+            $email=$_POST['email'];
+            $password=$_POST['password'];
+            $_SESSION['login_user'] = $email;
+            $query = mysqli_query($db,"SELECT email FROM user WHERE email='$email' and password='$password'");
+            if (mysqli_num_rows($query) != 0){
+              echo "<script language='javascript' type='text/javascript'> location.href='feed/feed/feed.php' </script>";   
+            }
+            else{
+              echo "<script type='text/javascript'>alert('User Name Or Password Invalid!')</script>";
+            }
+          }
+        ?>
+
+        <?php
+            error_reporting(E_ALL);
+            ini_set('display_errors', 1);
+
+            if (isset($_POST['submit2'])){
+                 $conn=mysqli_connect('localhost','root','abcd','project');
+                  if (!$conn){
+                    die("Connection failed: " . mysqli_connect_error());
+                  }
+
+              $firstname=$_POST['firstname'];
+              $lastname=$_POST['lastname'];
+              $email=$_POST['email'];
+              $password=$_POST['password'];
+
+              $sql = "INSERT INTO user(firstname,lastname,email,password) VALUES('$firstname','$lastname','$email','$password')";
+              if (mysqli_query($conn, $sql)) {
+                    echo '<script>alert("Thanks for signing up to Pixl!")</script>';
+              } 
+              else {
+                  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+              }
+
+              mysqli_close($conn);
+            }
+        ?>
 
         <!-- Javascript -->
         <script src="assets/js/jquery-1.11.1.min.js"></script>
         <script src="assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="assets/js/jquery.backstretch.min.js"></script>
         <script src="assets/js/scripts.js"></script>
-        <script src="assets/js/script2.js"></script>
-        
+        <script src="assets/js/script2.js"></script>        
+
         <!--[if lt IE 10]>
             <script src="assets/js/placeholder.js"></script>
         <![endif]-->
