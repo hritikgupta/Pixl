@@ -37,6 +37,11 @@
             .font2{
                 font-family: 'Quicksand', sans-serif;
             }
+            .navbar {
+                -webkit-border-radius: 0;
+                -moz-border-radius: 0;
+                border-radius: 0;
+            }
         </style>
         <!-- Top content -->
         <div class="top-content">
@@ -150,6 +155,7 @@
             session_start();
             $email=$_POST['email'];
             $password=$_POST['password'];
+
             $_SESSION['login_user'] = $email;
             $query = mysqli_query($db,"SELECT email FROM user WHERE email='$email' and password='$password'");
             if (mysqli_num_rows($query) != 0){
@@ -177,6 +183,7 @@
               $password=$_POST['password'];
 
               $sql = "INSERT INTO user(firstname,lastname,email,password) VALUES('$firstname','$lastname','$email','$password')";
+
               if (mysqli_query($conn, $sql)) {
                     echo '<script>alert("Thanks for signing up to Pixl!")</script>';
               } 
