@@ -2,8 +2,8 @@
  //session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
- $connect = mysqli_connect("localhost", "root", "abcd", "project");  
- session_start();
+$connect = mysqli_connect("localhost", "root", "abcd", "project");  
+session_start();
  $curr_user = $_SESSION['login_user'];	  
       $qq = "SELECT * from user where email='$curr_user'";
       if ($findid=mysqli_query($connect,$qq)){
@@ -204,7 +204,7 @@ for ($i=0; $i < sizeof($tag); $i++) {
     <div id="fh5co-main">
 		<div class="container" style="margin-top: 6vw">
 			<div class="row">
-			<div class="col-md-3 fixed"><div class="affix">Streaming the top searched tags</div></div>
+			<div class="col-md-3 fixed"><div class="affix"></div></div>
 			<div class="col-xs-6">
 					<div class="photocontainter	">
 						<?php  
@@ -215,19 +215,60 @@ for ($i=0; $i < sizeof($tag); $i++) {
 			                	 $count+=1;
 
 			                	 $reqname = $row['userid'];
+			                	 $IMAGEid = $row['id'];
+			                	 $totLikes = $row['likes'];
 			                	 $qq = "SELECT * from user where id='$reqname'";
 			                	 if ($find_email = mysqli_query($connect,$qq)){
 									  $row_user = mysqli_fetch_row($find_email);
 							    	  $his_email = $row_user[3];
 							    	  $hisTags = $row_user[4];
+							    	  $his_dp = $row_user[5];
+							    	  $his_id = $row_user[0];
 							  		//mysqli_free_result($findid);
 								}
-								 echo"<div style=\"margin-bottom:4vw; box-shadow: 2px 2px 5px #888888;\">";	
+
+								/////DO ON BUTTON CLICK
+								/*
+								if (isset($_POST['liked'])){
+									$q8 = "SELECT * from likes where imageid='$IMAGEid' and userid='$curr_user'";
+									if ($likeTemp = mysqli_query($connect,$q8)){
+										$rowNum_like = mysqli_num_rows($likeTemp);
+										if($rowNum_like == 0){
+											$q9 = "INSERT into likes VALUES('$IMAGEid', '$hisid')";
+											if(mysqli_query($connect, $q9)){  
+										        echo '<script>alert(appended to likes table)</script>';  
+										    }
+										    $q10 = "UPDATE images set likes=likes+1 where id='$IMAGEid'";
+										    if(mysqli_query($connect, $q10)){
+										  		echo "<script>alert(Like incremented)<script>";
+										  	}
+										}
+										else if($rowNum_like>0){
+											$q11 = "DELETE from likes where imageid='$IMAGEid' and userid='$hisid'";
+											if(mysqli_query($connect, $q11)){  
+										        echo '<script>alert(deleted from likes table)</script>';  
+										    }
+										    $q12 = "UPDATE images set likes=likes-1 where id='$IMAGEid'";
+										    if(mysqli_query($connect, $q12)){
+										  		echo "<script>alert(Like decremented)</script>";
+										  	}
+										}
+									}
+								}*/
+		
+								$q13 = "SELECT likes from images where id='$IMAGEid'";
+								if ($findlikes=mysqli_query($connect,$q13)){
+		  							$rowty=mysqli_fetch_row($findlikes);
+		  							$numLik = $rowty['0'];
+		  						}
+								////////
+
+								echo"<div style=\"margin-bottom:4vw; box-shadow: 2px 2px 5px #888888;\">";	
 								echo "<div class=\"img-frame-cap\">"."<span style=\"color:black; font-weight:bold\"><a href=\"profile.php?profile=".$his_email."\">".$his_email.'</a></span>';
-			                	 echo "<span style=\"float:right;\">".$row['created'].'</span>';
-			                	 echo '<img src="data:image/jpeg;base64,'.base64_encode($row['image'] ).'" width="100%" class="img-thumnail" />';
-			                	 echo "<div style=\"text-align:center;\">".$row['tags'].'</div>';
-			                	 echo'<i class="fa fa-camera-retro" style="margin-top:0.5vw; font-size:24px"></i>  23 Pixl</div></div>';         
+			                	echo "<span style=\"float:right;\">".$row['created'].'</span>';
+			                	echo '<a href="imageResult.php?id='.$IMAGEid.'"><img src="data:image/jpeg;base64,'.base64_encode($row['image'] ).'" width="100%" class="img-thumnail" /></a>';
+			                	echo "<div style=\"text-align:center;\">".$row['tags'].'</div>';
+			                	echo'<button class="btn-link btn-xs" type="submit" name="liked"><i class="fa fa-camera-retro" style="font-size:24px"></i></button>'.$numLik.'   Pixl</div></div>';         
 			                }
 			                if($count == 0)
 			                	echo '<span>No image to display!</span>'  

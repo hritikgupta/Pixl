@@ -89,8 +89,8 @@
                             <div class="form-bottom font2">
                                 <form id="myform1" role="form" action="" method="post" class="login-form">
                                     <div class="form-group">
-                                        <label class="sr-only" for="form-username">Registered Email</label>
-                                        <input type="text" name="email" placeholder="Registered Email..." class="form-username form-control"/>
+                                        <label class="sr-only" for="form-username">Pixl Name</label>
+                                        <input type="text" name="email" placeholder="Pixl Name..." class="form-username form-control"/>
                                     </div>
                                     <div class="form-group">
                                         <label class="sr-only" for="form-password">Password</label>
@@ -128,8 +128,8 @@
                                 <input type="text" name="lastname" placeholder="Last name..." class="form-last-name form-control">
                             </div>
                             <div class="form-group">
-                                <label class="sr-only" required for="form-email">Email</label>
-                                <input type="text" name="email" placeholder="Email..." class="form-email form-control" id="email">
+                                <label class="sr-only" required for="form-email">Pixl Name</label>
+                                <input type="text" name="email" placeholder="Pixl Name..." class="form-email form-control" id="email">
                             </div>
                             <div class="form-group">
                                 <label class="sr-only" required for="form-password">Password</label>

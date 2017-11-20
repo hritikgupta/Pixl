@@ -55,6 +55,9 @@
             -moz-border-radius: 0;
             border-radius: 0;
         }
+        body{
+            font-size: 1.2vw;
+        }
     </style>
 </style>
 
@@ -69,12 +72,6 @@
                         </button>
                         <a class="navbar-brand font1" style="font-size: 2.5vw; color: white; font-family: 'Pacifico', cursive;" href="feed.php">Pixl</a>
                     </div>
-
-                    <form class="navbar-form navbar-center" method="post" action="search.php">
-                        <div class="form-group" style="margin-top: -6px">
-                            <input type="text" name="searchedTag" class="form-control" placeholder="Search">
-                        </div>
-                    </form>
 
                     <div class="collapse navbar-collapse" id="top-navbar-1">
                         <ul class="nav navbar-nav navbar-right">
@@ -125,13 +122,21 @@
                                 $fetchedID = $row['picid'];
                                 $q3 = "SELECT * from images where id=$fetchedID";
                                 if ($findImageDetails = mysqli_query($connect,$q3)){
-                                      $row_user = mysqli_fetch_row($findImageDetails);
-                                      $theImage = $row_user[1];
+                                      $row_img = mysqli_fetch_row($findImageDetails);
+                                      $theImage = $row_img[1];
+                                      $userID = $row_img[3];
+                                      $time = $row_img[2];
                                     //mysqli_free_result($findid);
                                 }
-                                //echo"<div style=\"margin-bottom:4vw; box-shadow: 2px 2px 5px #888888;\">";  
-                                //echo "<div class=\"img-frame-cap\">"."<span style=\"color:black; font-weight:bold\"><a href=\"profile.php?profile=".$his_email."\">".$his_email.'</a></span>';
-                                //echo "<span style=\"float:right;\">".$row['created'].'</span>';
+                                $q4 = "SELECT * from user where id='$userID'";
+                                if ($retUser = mysqli_query($connect,$q4)){
+                                      $row_user = mysqli_fetch_row($retUser);
+                                      $user_email = $row_user[3];
+                                }
+                                
+                                echo"<div style=\"margin-bottom:4vw; padding:1vw; box-shadow: 2px 2px 5px #888888;\">";  
+                                echo "<div class=\"img-frame-cap\">"."<span style=\"color:black; font-weight:bold\"><a href=\"profile.php?profile=".$user_email."\">".$user_email.'</a></span>';
+                                echo "<span style=\"float:right;\">".$time.'</span>';
                                 echo '<img src="data:image/jpeg;base64,'.base64_encode($theImage).'" width="100%" class="img-thumnail" />';
                                 //echo "<div style=\"text-align:center;\">".$row['tags'].'</div>';
                                 //echo'<i class="fa fa-camera-retro" style="margin-top:0.5vw; font-size:24px"></i>  23 Pixl</div></div>';
@@ -143,38 +148,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Post Content -->
-    <!--<article>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-
-                    <h2 class="section-heading">The Final Frontier</h2>
-
-                    <p>Objectively innovate empowered manufactured products whereas parallel platforms. Holisticly predominate extensible testing procedures for reliable supply chains. Dramatically engage top-line web services vis-a-vis cutting-edge deliverables.</p>
-
-                    <blockquote>Proactively envisioned multimedia based expertise and cross-media growth strategies.</blockquote>
-
-                    <p>Phosfluorescently engage worldwide methodologies with web-enabled technology. Interactively coordinate proactive e-commerce via process-centric "outside the box" thinking. Completely pursue scalable customer service through sustainable potentialities.</p>
-
-                    <h2 class="section-heading">Credibly innovate</h2>
-
-                    <p>Credibly innovate granular internal or "organic" sources whereas high standards in web-readiness. Energistically scale future-proof core competencies vis-a-vis impactful experiences. Dramatically synthesize integrated schemas with optimal networks.</p>
-
-                    <a href="#">
-                        <img class="img-responsive" src="img2/caralog9.jpg" alt="">
-                    </a>
-                    <span class="caption text-muted">Phosfluorescently engage worldwide methodologies with web-enabled technology</span>
-
-                    <p>Interactively procrastinate high-payoff content without backward-compatible data. Quickly cultivate optimal processes and tactical architectures. Completely iterate covalent strategic theme areas via accurate e-markets.</p>
-
-
-                    <p>Placeholder text by <a href="http://www.cipsum.com/">Corporate Ipsum</a>. Photos by <a href="https://unsplash.com/">unsplash.com</a>.</p>
-                </div>
-            </div>
-        </div>
-    </article>-->
 
    
     <!-- jQuery -->

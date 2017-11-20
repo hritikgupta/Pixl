@@ -83,6 +83,15 @@
 			    bottom no-repeat;
 			  background-size: 20% 3px;
 		}
+		.rounded{
+			height: 170px;
+		    width: 150px;
+		    -webkit-border-radius: 50%;
+		    -moz-border-radius: 50%;
+		    -ms-border-radius: 50%;
+		    -o-border-radius: 50%;
+		    border-radius: 50%;
+		}
 </style>
 	<nav class="navbar navbar-inverse" role="navigation" style="background:rgba(0, 0, 0,0.8); padding-right: -4vw; position: fixed; width: 100%; z-index: 500">
                 <div class="container">
@@ -132,13 +141,14 @@
 						$first_name = $row[1];
 						$last_name = $row[2];
 						$his_email = $row[3];
+						$his_xp = $row[6];
 					}       
 				?>	
 					<?php
 						$flag = 0;
 						if($currUserDP!="NULL"){
 							$flag = 1;
-							echo'<img src="data:image/jpeg;base64,'.base64_encode($row[5]).'" width="100%" class="img-thumnail" style="width: 90%; border-radius: 50%; display:block; margin:auto;" />';
+							echo'<img src="data:image/jpeg;base64,'.base64_encode($row[5]).'" width="100%" class="img-thumnail rounded" style="display:block; margin:auto;" />';
 						}
 						
 					?>
@@ -155,7 +165,7 @@
 					
 
 				</h3><br>
-				<h3>XP - 620</h3>
+				<h3>XP - <?php echo $his_xp?></h3>
 			</div>
 		</div><br><br><hr style="background-color: black">
 		<div class="row text-center">
