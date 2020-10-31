@@ -44,3 +44,5 @@ jobs:
           fail_ci_if_error: true # optional (default = false)
           verbose: true # optional (default = false)
           path_to_write_report: ./coverage/codecov_report.gz
+        name:
+          run: bash <(curl -s https://codecov.io/bash)
