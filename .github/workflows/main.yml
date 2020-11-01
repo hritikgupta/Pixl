@@ -31,13 +31,20 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+  coverage:
+    name: Test CodeCov
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+
       - name: Generate coverage report
         run: |
-          echo "Generate test"
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1.0.5
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          file: ./coverage.xml
-          fail_ci_if_error: true
-          verbose: true
+          echo "Testing!"
+          bash <(curl -s https://codecov.io/bash)
+      - name: Upload Code Coverage
+        run: |
+          bash <(curl -s https://codecov.io/bash)
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
