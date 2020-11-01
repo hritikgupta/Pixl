@@ -6,7 +6,7 @@ on:
       - "master"
 
 jobs:
-  pre-release:
+  pre-release-test:
     name: "Pre Release"
     runs-on: "ubuntu-latest"
 
@@ -21,7 +21,7 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
           prerelease: true
-          title: "Development Build"
+          title: "Another Development Build"
           files: |
             LICENSE.txt
             *.jar
