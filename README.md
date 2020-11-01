@@ -1,3 +1,5 @@
+![CI](https://github.com/hritikgupta/Pixl/workflows/CI/badge.svg)
+
 # Pixl
 
 A platform to share, comment and like on images, made for the Applied Database Practicum Project. <br/>
