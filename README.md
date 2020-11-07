@@ -6,3 +6,4 @@ A platform to share, comment and like on images, made for the Applied Database P
 The images get ranked on user's feed ranked by their Elo ratings. <br/>
 
 Added some random content for testing
+Added more content
